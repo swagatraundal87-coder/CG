@@ -1,0 +1,115 @@
+#VRML V2.0 utf8
+
+# A simple, modern chair in VRML
+
+Transform {
+  children [
+
+    # SEAT
+    Transform {
+      translation 0 0.5 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.6 0.4 0.2
+            }
+          }
+          geometry Box {
+            size 0.5 0.05 0.5
+          }
+        }
+      ]
+    }
+
+    # CHAIR BACK
+    Transform {
+      translation 0 0.85 -0.225
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.6 0.4 0.2
+            }
+          }
+          geometry Box {
+            size 0.5 0.6 0.05
+          }
+        }
+      ]
+    }
+
+    # FRONT LEFT LEG
+    Transform {
+      translation -0.225 0.25 0.225
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.3 0.3 0.3
+            }
+          }
+          geometry Cylinder {
+            radius 0.02
+            height 0.5
+          }
+        }
+      ]
+    }
+
+    # FRONT RIGHT LEG
+    Transform {
+      translation 0.225 0.25 0.225
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.3 0.3 0.3
+            }
+          }
+          geometry Cylinder {
+            radius 0.02
+            height 0.5
+          }
+        }
+      ]
+    }
+
+    # BACK LEFT LEG
+    Transform {
+      translation -0.225 0.25 -0.225
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.3 0.3 0.3
+            }
+          }
+          geometry Cylinder {
+            radius 0.02
+            height 0.5
+          }
+        }
+      ]
+    }
+
+    # BACK RIGHT LEG
+    Transform {
+      translation 0.225 0.25 -0.225
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.3 0.3 0.3
+            }
+          }
+          geometry Cylinder {
+            radius 0.02
+            height 0.5
+          }
+        }
+      ]
+    }
+
+  ]
+}
