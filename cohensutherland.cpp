@@ -155,3 +155,90 @@ int main(int argc, char** argv)
 
     return 0;
 }
+
+/*
+2. Theory
+The Cohen-Sutherland Line Clipping Algorithm is a computer graphics algorithm used to remove the unwanted portions of a line that lie outside a rectangular clipping window.
+
+It checks whether a line is completely inside, completely outside, or partially inside the clipping window.
+
+The algorithm divides the screen into nine regions using a rectangular clipping window. Each region is assigned a 4-bit region code.
+
+Region Codes:
+Region	Code
+Inside	0000
+Left	0001
+Right	0010
+Bottom	0100
+Top	1000
+
+Three main cases:
+1. Completely Inside: If both endpoints have region code 0000, the entire line is accepted.
+2. Completely Outside: If the bitwise AND of both region codes is not zero, the line is rejected.
+3. Partially Inside: If the line is partially inside the clipping window, the intersection point is calculated and the outside portion is removed.
+Important functions:
+Function	Description
+computeCode()	Calculates the region code of a point.
+cohenSutherlandClip()	Performs the line clipping operation.
+glBegin(GL_LINE_LOOP)	Draws the rectangular clipping window.
+glBegin(GL_LINES)	Draws the line.
+glutMouseFunc()	Handles mouse click events.
+glutPostRedisplay()	Refreshes the display window.
+
+In this program, the clipping window is displayed in white colour. The original line is displayed in red, and after successful clipping, the visible line is displayed in green.
+3. Algorithm
+1. Start the program.
+2. Include the required OpenGL and iostream header files.
+3. Define the rectangular clipping window boundaries.
+4. Read the starting and ending coordinates of the line.
+5. Initialize the GLUT window.
+6. Set the background colour to black.
+7. Calculate the region codes of both endpoints using computeCode().
+8. Check the following conditions:
+   - If both region codes are zero, accept the line.
+   - If the bitwise AND of both codes is non-zero, reject the line.
+   - Otherwise, calculate the intersection point with the clipping boundary.
+9. Replace the outside endpoint with the intersection point.
+10. Repeat the process until the line is accepted or rejected.
+11. Display the clipping window and clipped line.
+12. Click the left mouse button to perform clipping.
+13. Stop the program.
+4. Example
+Input:
+Enter line coordinates (x1 y1 x2 y2):
+
+100 200 400 300
+
+
+Clipping Window Coordinates:
+Boundary	Coordinate
+xmin	150
+ymin	150
+xmax	350
+ymax	350
+
+Explanation:
+- Starting point: (100, 200)
+- Ending point: (400, 300)
+- The starting point is outside the left boundary.
+- The ending point is outside the right boundary.
+- The algorithm calculates the intersection points with the clipping window.
+- Only the portion of the line inside the rectangle is displayed after clipping.
+Expected Output:
+
+
+
+
+
+
+
+
+slideserve.com
+
+
+- White rectangle: Clipping window.
+- Red line: Original line before clipping.
+- Green line: Clipped line after successful clipping.
+5. Conclusion
+Thus, we successfully implemented the Cohen-Sutherland Line Clipping Algorithm using OpenGL. We learned how to identify different regions using 4-bit codes and remove the unwanted portions of a line outside a rectangular clipping window.
+*/

@@ -88,3 +88,74 @@ int main(int argc, char** argv)
     myInit();
     glutMainLoop();
 }
+
+/*
+2. Theory
+The Midpoint Circle Drawing Algorithm is used to draw a circle on a computer screen using pixels. It is an efficient circle-generation algorithm because it uses a decision parameter to select the next pixel.
+
+A circle is symmetrical about its centre. Therefore, instead of calculating all points of the circle, we calculate points in one octant and use eight-way symmetry to generate the remaining points.
+
+The algorithm starts from the point (0, r), where r is the radius of the circle. It then calculates the next point using a decision parameter.
+
+Working of the algorithm:
+1. Take the centre coordinates (xc, yc) and radius r.
+2. Initialize x = 0 and y = r.
+3. Calculate the initial decision parameter.
+4. Check the decision parameter:
+   - If it is negative, increase x by 1.
+   - Otherwise, increase x by 1 and decrease y by 1.
+5. Plot the calculated point using eight-way symmetry.
+6. Repeat until x becomes greater than or equal to y.
+Eight-way symmetry:
+
+For every calculated point (x, y), eight points are plotted around the circle:
+- (x, y)
+- (x, -y)
+- (-x, y)
+- (-x, -y)
+- (y, x)
+- (-y, x)
+- (y, -x)
+- (-y, -x)
+The program uses the plot() function to display these points using OpenGL.
+3. Algorithm
+1. Start the program.
+2. Accept the centre coordinates xc, yc and radius r from the user.
+3. Initialize the GLUT window.
+4. Set the background colour to white.
+5. Initialize x = 0 and y = r.
+6. Calculate the initial decision parameter d = 1.25 - r.
+7. Plot the initial point.
+8. Repeat while y > x:
+   - If d < 0, increment x and update d.
+   - Otherwise, increment x, decrement y and update d.
+   - Plot all eight symmetrical points.
+9. Display the complete circle.
+10. Stop.
+4. Example
+Input:
+Enter the coordinates of the center:
+
+X-coordinate : 320
+
+Y-coordinate : 240
+
+Enter radius : 100
+
+
+Output:
+
+
+
+
+
+
+
+
+slideserve.com
+
+
+The program displays a yellow circle with centre (320, 240) and radius 100 on a white background.
+5. Conclusion
+Thus, the circle was successfully drawn using the Midpoint Circle Drawing Algorithm and OpenGL. This practical demonstrates the use of a decision parameter and eight-way symmetry for efficient circle generation.
+*/
